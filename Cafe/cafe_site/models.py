@@ -10,6 +10,8 @@ class Menu(models.Model):
     class Meta:
         verbose_name = 'Салат'
         verbose_name_plural = 'Салаты'
+        ordering=['price']
+
 
     def get_detailUrl(self):
         return reverse('menu_detail', kwargs={'pk':self.pk})
@@ -22,3 +24,8 @@ class Menu(models.Model):
     
     def get_DeleteUrl(self):
         return reverse('menu_delete', kwargs={'pk':self.pk})
+
+class Photo(models.Model):
+    title=models.CharField(verbose_name='Описание', max_length=30,blank=True, null=True)
+    image=models.ImageField(verbose_name='Фотография', upload_to='gallery/')
+    menu=models.ForeignKey(Menu, verbose_name='Объявление',on_delete=models.CASCADE)
