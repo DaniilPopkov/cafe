@@ -12,5 +12,5 @@ urlpatterns=[
     path('create/', MenuCreate.as_view(), name='menu_create'),
     path('update/<int:pk>', MenuUpdate.as_view(), name='menu_update'),
     path('delete/<int:pk>', MenuDelete.as_view(), name='menu_delete'),
-
+    
 ]

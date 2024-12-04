@@ -14,9 +14,13 @@
       <h5 class="card-title">{{ menu.title }}</h5>
       <p class="card-text">{{ menu.text }}</p>
       <h5 class="card-title">{{ menu.portion }}</h5>
-      <h5 class="card-title">{{ menu.price }}</h5> 
+      <h5 class="card-title">{{ menu.price }} руб.</h5>
+      {% if user.is_staff %}
       <a href="{{ menu.get_UpdateUrl}}" class="btn btn-primary"> Редактировать </a>
+      {% endif %}
+      {% if user.is_staff %}
       <a href="{{ menu.get_DeleteUrl}}" class="btn btn-danger"> Удалить </a>
+      {% endif %}
     </div>
   </div>
 
